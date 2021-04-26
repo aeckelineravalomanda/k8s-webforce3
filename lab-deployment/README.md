@@ -40,23 +40,23 @@ k delete -f first.yaml
 ```
 ## usage of dry-run
 ```shell
-k create deployment two --image=nginx --dry-run=client -o yaml
+k create deployment two --image=nginx --dry-run=client -o yaml # creer objet temporairement
 ```
 
 ## Expose
 ```shell
-k expose -h 
+k expose -h # documentation de la commande expose
 k expose deployment nginx
 vim first.yaml
 #Add after name: nginx
-ports:
+ports: #ajouter le port et le protocol dans le fichier first.yaml du local et deployer dans la vm-master
 - containerPort: 80
   protocol: TCP
 k replace -f first.yaml
 k get deployment
 k expose deployment nginx
 k get svc
-k get ep nginx
+k get ep nginx #ep : end point
 ```
 
 ## Scale
@@ -68,13 +68,13 @@ k delete pod nginx-xxxx
 k get ep nginx
 curl <ip>:80
 k get pod -o wide
-k scale deployment nginx --replicas=0
+k scale deployment nginx --replicas=0 #arreter le deployement de ngnix, il est conservé mais pas de consommation de ressource
 ```
 
 ## Access from outside the cluster
 ```shell
 k get po 
-k exec nginx-xxxx --printenv | grep KUBERNETES
+k exec nginx-xxxx -- printenv | grep KUBERNETES
 k get svc
 k delete svc nginx
 k expose deployment nginx --type=LoadBalancer

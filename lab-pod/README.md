@@ -2,8 +2,9 @@
 ## Imperative command for creating a pod
 ```shell
 k run nginx --image=nginx  --port=8080
+k exec -it nginx -- /bin/bash #commande bonus pour rentrer dans le conteneur
 ```
-
+ 
 ## Declarative command for creation pod using a YAML file
 ```shell
 cd k8s-webforce3/lab-pod
