@@ -5,13 +5,13 @@ metadata:
     kompose.cmd: kompose convert
     kompose.version: 1.22.0 (955b78124)
   labels:
-    io.kompose.service: mysqlite
-  name: mysqlite
+    io.kompose.service: todoapplication-postgres
+  name: todoapplication-postgres
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: mysqlite
+      io.kompose.service: todoapplication-postgres
   strategy:
     type: Recreate
   template:
@@ -21,22 +21,14 @@ spec:
         kompose.version: 1.22.0 (955b78124)
       labels:
         io.kompose.network/lan_network: "true"
-        io.kompose.service: mysqlite
+        io.kompose.service: todoapplication-postgres
     spec:
       containers:
-        - args:
-            - tail
-            - -f
-            - /dev/null
-          image: aeckelineravalomanda/sqlite3
-          name: mysqlite
+        - image: systemdevformations/todoapplication-postgres
+          name: todoapplication-postgres
+          ports:
+            - containerPort: 5000
           resources: {}
-          volumeMounts:
-            - mountPath: /opt/data
-              name: sqlite-dir
-      hostname: sqlite
+      hostname: todo
       restartPolicy: Always
-      volumes:
-        - name: sqlite-dir
-          persistentVolumeClaim:
-            claimName: pvc-one
+

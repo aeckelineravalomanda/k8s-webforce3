@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="576ae0ff-c53f-42f4-beab-a23a20984080" name="vm-node">
-        <fileTransfer accessType="SFTP" host="170.75.164.209" port="22" sshConfigId="7c4b5197-bc56-4ad3-a776-c4f95599f9dc" sshConfig="ubuntu@170.75.164.209:22 key" keyPair="true">
+        <fileTransfer accessType="SFTP" host="170.75.170.63" port="22" sshConfigId="7c4b5197-bc56-4ad3-a776-c4f95599f9dc" sshConfig="ubuntu@170.75.170.63:22 key" keyPair="true">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
@@ -13,6 +13,13 @@
         <fileTransfer accessType="SFTP" sshConfigId="366a35bb-0ef4-4569-91b9-4c376223f746" sshConfig="vm_jenkins">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="469ca142-d9b9-4f8b-b1a7-c3de4e3d1831" name="vm-master">
+        <fileTransfer accessType="SFTP" host="170.75.170.63" port="22" sshConfigId="7c4b5197-bc56-4ad3-a776-c4f95599f9dc" sshConfig="ubuntu@170.75.170.63:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
         </fileTransfer>
       </webServer>

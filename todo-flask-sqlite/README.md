@@ -13,6 +13,7 @@ docker push <your docker_hub_account>/sqlite3
 
 ## Install on kubernetes
 ```shell
+cd ..
 k create -f lan_network-networkpolicy.yaml
 k create -f mypostgres-pv.yaml
 k get pv

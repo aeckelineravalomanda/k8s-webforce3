@@ -7,11 +7,11 @@ wget https://github.com/etcd-io/etcd/archive/v3.4.0.tar.gz
 tar -zxvf v3.4.0.tar.gz
 cd etcd-3.4.0
 ./build
-go mod vendor
+#go mod vendor
 ./build
-./test
+#./test
 cd bin
-./etcd &
+./etcd & #lancer la base de donnees en tache de fond
 ./etcdctl put key1 value1
 ./etcdctl get key1
 ```
